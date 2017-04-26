@@ -9,4 +9,4 @@
 - name: run create_users.py
   command: python3 create_users.py chdir={{home_dir}}
   become: true
-  when: use_oauth
+  when: use_oauth or use_LDAPauth

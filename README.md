@@ -1,3 +1,14 @@
+# For HBRSU
+The command needs root so the command to use is 
+
+* ansible-playbook deploy.yml --ask-become-pass
+
+# LDAP authetication
+The users needs to created manually 
+need to automate the user creation of 
+the whitelist users 
+
+
 # Deploy JupyterHub for teaching
 
 [![Google Group](https://img.shields.io/badge/-Google%20Group-lightgrey.svg)](https://groups.google.com/forum/#!forum/jupyter)
@@ -51,6 +62,7 @@ For *managing users and services* on the server, you will:
 - Authenticate and manage users with either:
   * Regular Unix users and PAM.
   * GitHub OAuth
+  * LDAP Authetication
 - Manage the running of jupyterhub and nbgrader using supervisor.
 - Monitor the state of the server (optional feature) using NewRelic or your
   cloud provider.
