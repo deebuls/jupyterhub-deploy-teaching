@@ -16,6 +16,8 @@ home_dir: /home
 # Users with administrative privileges.
 jupyterhub_admin_users:
   - dnair2m
+  - sthodu2m
+  - amitre2m
 
 # Whitelist of jupyterhub users.
 jupyterhub_users:
@@ -44,6 +46,7 @@ jupyterhub_users:
   - pdhole2s
   - dnair2m
   - sthodu2m
+  - amitre2m
 
 # R kernel installation, set to true to enable.
 install_r_kernel: false
@@ -224,8 +227,8 @@ nbgrader_courses:
     }
   - {
       course_id: "mrc",
-      owner: "dnair2m",
-      graders: ["sthodu2s"],
+      owner: "sthodu2m",
+      graders: ["sthodu2m", "amitre2m"],
       port: 5005
     }
 

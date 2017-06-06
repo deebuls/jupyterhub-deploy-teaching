@@ -4,11 +4,21 @@ The command needs root so the command to use is
 * ansible-playbook deploy.yml --ask-become-pass
 
 # LDAP authetication
-The users needs to created manually 
-need to automate the user creation of 
-the whitelist users 
+The users needs to created manually need to automate the user creation of the whitelist users 
 
+# SSL certificates
 
+**Generate a Self-Signed Certificate**
+
+Use this method if you want to use HTTPS (HTTP over TLS) to secure your Apache HTTP or Nginx web server, and you do not require that your certificate is signed by a CA.
+
+This command creates a 2048-bit private key (domain.key) and a self-signed certificate (domain.crt) from scratch:
+
+```
+openssl req \
+       -newkey rsa:2048 -nodes -keyout domain.key \
+       -x509 -days 365 -out domain.crt
+```
 # Deploy JupyterHub for teaching
 
 [![Google Group](https://img.shields.io/badge/-Google%20Group-lightgrey.svg)](https://groups.google.com/forum/#!forum/jupyter)
@@ -72,7 +82,7 @@ For *managing users and services* on the server, you will:
 Follow the detailed instructions in the [Installation Guide](http://jupyterhub-deploy-teaching.readthedocs.org/en/latest/installation.html).
 
 The basic steps are:
-- Create the hosts group with Fully Qualified Domain Names (FQDNs) of the hosts
+- Create the hosts group file with Fully Qualified Domain Names (FQDNs) of the hosts as filename
 - Secure your deployment with SSL
 - Deploy with Ansible ``ansible-playbook deploy.yml``
 - Verify your deployment and reboot the Hub ``supervisorctl reload``
@@ -124,3 +134,15 @@ The logs for nbgrader are in ``/var/log/nbgrader``.
 ### Starting, stopping, and restarting the Hub
 To manage the jupyterhub and nbgrader services by SSH to the server
 and run: ``supervisorctl jupyterhub [start|stop|restart]``
+
+### For debian system
+
+When installing on a base debian system(web server).
+1. sudo needs to be installed 
+
+2. The user should be added as sudo user.
+```
+sudo adduser username sudo
+sudo sh -c "echo 'username ALL=NOPASSWD: ALL' >> /etc/sudoers"
+```
+2. python3 needs to be installed 
