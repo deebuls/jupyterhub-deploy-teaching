@@ -39,3 +39,8 @@
     content: "{{ conda_config | to_yaml }}"
     dest: "{{ conda_prefix }}/.condarc"
 
+- name: create symlink for pip3 as pip
+  file:
+    src:  '{{conda_prefix}}/bin/pip'
+    dest:  '{{conda_prefix}}/bin/pip3'
+    state: link

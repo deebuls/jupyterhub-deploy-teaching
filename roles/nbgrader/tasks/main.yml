@@ -1,7 +1,7 @@
 ---
 
 - name: pip install nbgrader
-  pip: name={{item}} state=forcereinstall
+  pip: name={{item}} state=present
   become: true
   with_items:
     - nbgrader

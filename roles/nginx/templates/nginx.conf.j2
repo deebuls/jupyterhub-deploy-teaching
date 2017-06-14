@@ -65,7 +65,7 @@ http {
 {% endif %}
 
         location / {
-            proxy_pass http://{{ ansible_default_ipv4.address }}:8000;
+            proxy_pass http://127.0.0.1:8000;
 
             proxy_set_header X-Real-IP $remote_addr;
             proxy_set_header Host $host;
@@ -74,7 +74,7 @@ http {
         }
 
         location ~* /(user/[^/]*)/(api/kernels/[^/]+/channels|terminals/websocket)/? {
-            proxy_pass http://{{ ansible_default_ipv4.address }}:8000;
+            proxy_pass http://127.0.0.1:8000;
 
             proxy_set_header X-Real-IP $remote_addr;
             proxy_set_header Host $host;
@@ -87,6 +87,10 @@ http {
             proxy_set_header Upgrade $http_upgrade;
             proxy_set_header Connection "upgrade";
             proxy_read_timeout 86400;
+
+	    # For allowing ssh forward websocket
+            proxy_set_header Origin "";
+	    
         }
     }
 }
