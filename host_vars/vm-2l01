@@ -15,35 +15,12 @@ home_dir: /home
 
 # Users with administrative privileges.
 jupyterhub_admin_users:
-  - user
   - dnair2s
 
 # Whitelist of jupyterhub users.
 jupyterhub_users:
-  - user
-  - grader
-  - student1
-  - student2
   - dnair2s
   - sthodu2s
-  - lnaik2s
-  - csidna2s
-  - ssocka2s
-  - apadal2s
-  - dbarua2s
-  - ngurul2s
-  - amoha12s
-  - pmuthu2s
-  - pboony2s
-  - rsharm2s
-  - mzahid2s
-  - akhan12s
-  - dtran2s
-  - asreek2s
-  - yweitz2s
-  - mvinci2s
-  - abuech2s
-  - pdhole2s
 # R kernel installation, set to true to enable.
 install_r_kernel: false
 
