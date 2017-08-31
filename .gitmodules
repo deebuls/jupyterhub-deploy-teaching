@@ -1,3 +1,0 @@
-[submodule "ansible-conda"]
-	path = ansible-conda
-	url = https://github.com/UDST/ansible-conda.git

@@ -1,11 +1,16 @@
 ---
-
-- name: install jupyterhub dependencies via conda
-  conda: name={{item}} state=present
+- name: install recent version of npm
+  apt: name={{item}} state=present
   become: true
   with_items:
-    - configurable-http-proxy
-    - sqlalchemy
+    - npm
+    - nodejs-legacy
+
+- name: install jupyterhub dependencies via npm
+  npm: 
+    name: configurable-http-proxy 
+    global: yes
+    state: present
 
 - name: install jupyterhub via pip
   pip: name={{item}} state=present editable=false
@@ -15,6 +20,7 @@
     - oauthenticator==0.5
     - notebook
     - jupyterhub-systemdspawner
+    - sqlalchemy
 #    - jupyterhub-ldapauthenticator
 
 - name: install jupyterhub ldapautheticator via pip
