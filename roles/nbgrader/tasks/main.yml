@@ -32,6 +32,13 @@
   command: jupyter serverextension enable --sys-prefix --py nbgrader
   become: true
 
+- name: creating users of instructors
+  user:
+    name:  "{{item.owner}}"
+    state: present
+  with_items:
+    - "{{nbgrader_courses}}"
+
 - name: stat home directories of instructors
   stat: path={{home_dir}}/{{item.owner}}
   with_items:
