@@ -43,11 +43,13 @@ cleanup_on_shutdown: true
 # Packages
 # ------------------------------------------------------------------------------
 
-# Add or remove packages here for different package managers here (conda, pip,
+# Add or remove packages here for different package managers here (pip,
 # cran). The package listed here are on-top of the base installation of jupyter,
 # ipython and the IPython and IR kernel.
 
-conda_packages:
+
+pip_packages:
+  - brewer2mpl
   - numpy
   - cython
   - h5py
@@ -63,9 +65,6 @@ conda_packages:
   - scipy
   - scikit-learn
   - scikit-image
-
-pip_packages:
-  - brewer2mpl
 #  - ggplot
 
 cran_packages:

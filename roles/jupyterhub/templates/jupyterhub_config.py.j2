@@ -72,7 +72,7 @@ c.JupyterHub.services = [
     {
         'name': 'cull_idle_servers',
         'admin': True,
-        'command': ['/opt/conda/bin/python3', '{{jupyterhub_srv_dir}}/cull_idle_servers.py', '--cull-every={{cull_every}}', '--timeout={{cull_timeout}}']
+        'command': ['/usr/bin/python3', '{{jupyterhub_srv_dir}}/cull_idle_servers.py', '--cull-every={{cull_every}}', '--timeout={{cull_timeout}}']
 	},
 {% endif %}
 ]
